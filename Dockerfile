@@ -1,5 +1,6 @@
 FROM python:3.4.5-alpine
 
-RUN pip install sphinx
+RUN apk add --no-cache make && \
+    pip install sphinx
 
 ENTRYPOINT ["sphinx-build"]
