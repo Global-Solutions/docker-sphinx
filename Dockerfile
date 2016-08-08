@@ -5,7 +5,9 @@ LABEL version="0.0.1"
 ENV SPHINX_VER=1.4.5 \
     SPHINX_THEMES="sphinxjp.themes.sphinxjp==0.3.1"
 
+ADD ./entrypoint.sh /sbin/entrypoint.sh
 RUN apk add --no-cache make && \
-    pip install sphinx==${SPHINX_VER} ${SPHINX_THEMES}
+    pip install sphinx==${SPHINX_VER} ${SPHINX_THEMES} && \
+    chmod 755 /sbin/entrypoint.sh
 
-ENTRYPOINT ["sphinx-build"]
+ENTRYPOINT ["/sbin/entrypoint.sh"]
