@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONT=sphinx
+CONT=gsol/sphinx
 WORKDIR=/tmp/sphinx
 if [ -e Makefile ]; then
   docker run -v $(pwd):${WORKDIR} --workdir ${WORKDIR} --rm ${CONT} ${1}
